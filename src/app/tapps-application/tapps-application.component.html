@@ -1,0 +1,84 @@
+<div class="container">
+  <h1>Application</h1>
+
+  <h4>{{ isUpdateData ? "Update data" : "Add data" }}</h4>
+  <form style="border: 1px solid darkgray; padding: 10px">
+    <div class="form-group" style="display: flex; flex-wrap: wrap">
+      <div
+        class="form-group"
+        style="width: 200px; margin: 20px"
+        *ngFor="let f of fields"
+      >
+        <label for="{{ f }}">{{ f }}</label>
+        <input
+          type="text"
+          class="form-control"
+          id="{{ f }}"
+          [formControl]="formControls[f]"
+          placeholder="{{ 'Enter ' + f }}"
+        />
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary margin_5px"
+      (click)="submit($event)"
+    >
+      Submit
+    </button>
+  </form>
+  <div style="margin: 10px"></div>
+  <div style="margin: 10px"></div>
+  <button
+    *ngFor="let c of listCategory"
+    type="submit"
+    class="btn btn-primary"
+    style="margin: 10px"
+    (click)="changeCurrentCate(c?.spec_name)"
+    [style.background]="currentCate !== c?.spec_name ? 'iherit' : 'red'"
+  >
+    {{ c?.name }}
+  </button>
+  <div style="margin: 10px"></div>
+  <div style="margin: 10px"></div>
+  <div
+    class="tablearea"
+    style="
+      overflow: hidden;
+      overflow-x: scroll;
+      background: transparent !important;
+      border: 1px solid lightgray;
+    "
+  >
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th *ngFor="let key of keys">{{ key }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of data">
+          <td class="flex">
+            <button
+              type="button"
+              class="btn btn-danger witdh_70px margin_5px"
+              (click)="delete(d?._id)"
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning witdh_70px margin_5px"
+              (click)="showData(d?._id)"
+            >
+              Edit
+            </button>
+          </td>
+          <td *ngFor="let k of keys">{{ showDataRow(d, k) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

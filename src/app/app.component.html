@@ -1,0 +1,44 @@
+<div class="flex full-height">
+  <div class="sidebar">
+    <h4>TAPPS ADMIN</h4>
+    <div class="container">
+      <div class="navigators">
+        <div
+          class="item"
+          *ngFor="let item of tabs"
+          (click)="handleClickTab(item.name)"
+        >
+          <p [style.color]="item.active ? 'yellow' : 'white'">{{ item.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="sidebar"
+    style="height: 100vh; overflow: hidden; position: fixed; top: 0"
+  >
+    <h4>TAPPS ADMIN</h4>
+    <div class="container">
+      <div class="navigators">
+        <div
+          class="item"
+          *ngFor="let item of tabs"
+          (click)="handleClickTab(item.name)"
+        >
+          <p [style.color]="item.active ? 'yellow' : 'white'">{{ item.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <!-- <div class="header">header</div> -->
+    <div class="container">
+      <app-category *ngIf="tabNameActive === 'category'"></app-category>
+      <app-application
+        *ngIf="tabNameActive === 'application'"
+      ></app-application>
+
+      <app-master *ngIf="tabNameActive === 'master'"></app-master>
+    </div>
+  </div>
+</div>

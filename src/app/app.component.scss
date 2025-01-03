@@ -1,0 +1,47 @@
+.sidebar {
+  width: 20%;
+  background: #94836d;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  h4 {
+    text-align: center;
+    margin-top: 15px;
+  }
+  .container {
+    .navigators {
+        display: flex;
+        flex-direction: column;
+        .item {
+            width: 100%;
+            height: 38px;
+            padding: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            background: rgba($color: #000000, $alpha: 0.25);
+            color:#fff;
+            p {
+                text-transform: capitalize;
+            }
+        }
+    }
+  }
+}
+
+.main {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  .header {
+    width: 100%;
+    height: 56px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background: #94836d;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.full-height {
+  height: 100vh;
+}
