@@ -48,6 +48,7 @@ export class ApplicationComponent {
 
     changeCurrentCate(c: string) {
         this.currentCate = c;
+        this.get(this.currentCate);
     }
 
     submit(e: any) {
